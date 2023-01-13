@@ -4,7 +4,7 @@ import dateUtils from "./currentVer/DateUtils.js";
 export default class Context {
     // FIXME musi byt spravna url
     // url pro dotazovani
-    url = "asteriontimelinesvisualisation.up.railway.app";
+    url = "https://asteriontimelinesvisualisation.up.railway.app";
 
     // pole zatím získaných dat ze serverové části
     data = [];
