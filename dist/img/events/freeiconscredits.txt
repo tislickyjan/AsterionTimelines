@@ -1,0 +1,12 @@
+born = https://www.flaticon.com/free-icon/newborn_196147
+coins = https://freeiconshop.com/icon/coins-icon-flat/
+crown = https://www.flaticon.com/free-icon/crown_273578
+dragon = https://www.flaticon.com/free-icon/dragon_1471388?term=dragon&page=3&position=32
+grave = https://www.flaticon.com/free-icon/reaper_1149380?term=death&page=2&position=19
+lightning = http://freeiconshop.com/icon/lightning-bolt-icon-flat/
+move = https://www.iconninja.com/direction-forward-arrow-right-next-move-icon-12298
+ring = https://www.flaticon.com/free-icon/curved-arrow_339155?term=curved%20arrow&page=2&position=73
+war = https://www.flaticon.com/free-icon/crossing-swords_1484849?term=crossed%20swords&page=1&position=13
+flag = https://www.flaticon.com/free-icon/maps-and-flags_316315?term=surrender&page=1&position=15
+title = https://www.flaticon.com/free-icon/title_2799954?term=title&page=1&position=6
+arrow = https://www.flaticon.com/free-icon/point_556232?term=pointing%20hand&page=1&position=5&page=1&position=5&related_id=556232&origin=search
