@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blueprint for DP</title>
+    <link rel="stylesheet" href="bpCSS.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script type="module" src="./bp-interaction.js"></script>
+    <script type="module" src="./../currentVer/DateUtils.js"></script>
+</head>
+<body>
+    <div id="viz">
+        <div id="header">
+            <div class="title">
+                <h1>Asterion Timelines</h1>
+            </div>
+            <div class="links">
+                <a>Upravit</a>
+                <a href="">Nápověda</a>
+                <a href="">Asterion</a>
+                <a href="">Discord</a>
+            </div>
+        </div>
+
+        <div class="minimap">
+            <svg class="minimapDraw">
+                <text id="start_time" x="5" y="25">1. mesic 1111</text>
+                <rect id="minimap_Bound" x="130" y="5" width="700" height="25"></rect>
+                <text id="end_time" x="835" y="25">1. mesic 1111</text>
+            </svg>
+        </div>
+
+        <div class="canvas">
+            <svg class="canvasDraw" height="100%" width="100%">
+                <rect id="zoom"></rect>
+                <g id="timestamps" transform="translate(0,950)">
+                </g>
+                <g transform="translate(0,100)">
+                    <g id="timelines" transform="translate(0,0)">
+                        <g id="paths">
+                        </g>
+<!--                    obrazky bude treba vzdy umistovat znovu jinak receno x = x * scale.x, bude chtít vlastni g-->
+                        <image x="325" y="145" height="50" width="50" bckp-x="20000" href="/img/war.png"Ł></image>
+                        <image x="60" y="-25" height="50" width="50" bckp-x="6000" href="/img/war.png"Ł></image>
+                        <image x="200" y="145" height="50" width="50" bckp-x="400" href="/img/war.png"Ł></image>
+                        <image x="0" y="315" height="50" width="50" bckp-x="0" href="/img/war.png"Ł></image>
+                    </g>
+                    <rect y="-5000" id="lampshade" height="900%" width="200" fill="lightgray"></rect>
+                    <image id="selected" x="100" y="0" width="100" height="100" href="/img/war.png"></image>
+                    <g id="emblems" transform="translate(90,0)">
+                        <g class="Almendor" transform="translate(0,-40)">
+                            <rect class="background" x="-90" y="-15" width="145" height="125"></rect>
+                            <text x="15" y="0">aldeon</text>
+                            <image class="item" href="/img/tags/almendor.png" x="0" y="10" height="100" width="100"></image>
+                            <image class="up hideable" href="/img/smallArrow.png" x="-60" y="-20" height="40" width="40"></image>
+                            <image class="down hideable" href="/img/smallArrow.png" transform="rotate(180)" x="20" y="-120" height="40" width="40"></image>
+                            <rect class="edit hideable" x="-80" y="30" width="80" height="40" fill="white" rx="15"></rect>
+                            <text class="hideable" x="-72" y="55">Upravit</text>
+                        </g>
+                        <g class="Danérie" transform="translate(0,130)">
+                            <rect class="background" x="-90" y="-15" width="145" height="125"></rect>
+                            <text x="15" y="0">Danerie</text>
+                            <image class="item" href="/img/tags/danerie.png" x="0" y="10" height="100" width="100"></image>
+                            <image class="up  hideable" href="/img/smallArrow.png" x="-60" y="-20" height="40" width="40"></image>
+                            <image class="down  hideable" href="/img/smallArrow.png" transform="rotate(180)" x="20" y="-120" height="40" width="40"></image>
+                            <rect class="edit hideable" x="-80" y="30" width="80" height="40" fill="white" rx="15"></rect>
+                            <text class="hideable" x="-72" y="55">Upravit</text>
+                        </g>
+                        <g class="Keledor" transform="translate(0,300)">
+                            <rect class="background" x="-90" y="-15" width="145" height="125"></rect>
+                            <text x="15" y="0">Kaledor</text>
+                            <image class="item" href="/img/tags/keledor.png" x="0" y="10" height="100" width="100"></image>
+                            <image class="up  hideable" href="/img/smallArrow.png" x="-60" y="-20" height="40" width="40"></image>
+                            <image class="down  hideable" href="/img/smallArrow.png" transform="rotate(180)" x="20" y="-120" height="40" width="40"></image>
+                            <rect class="edit hideable" x="-80" y="30" width="80" height="40" fill="white" rx="15"></rect>
+                            <text class="hideable" x="-72" y="55">Upravit</text>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </div>
+        <div id="modal_menu">
+            <div class="content">
+                <div id="buttons">
+                    <button class="mod_item edit">Upravit</button>
+                    <button class="mod_item add">Přidat</button>
+                    <button class="mod_item del">Odebrat</button>
+                    <button class="close">X</button>
+                </div>
+                <hr>
+                <div class="tabs">
+                    <div id="modal_select">
+                        <p>Vyberte </p>
+                        <select class="form_select">
+                            <option value="0" title="vše" selected="">Vše</option>
+                            <option value="1" title="Almendor" selected="">Almendor</option>
+                            <option value="2" title="Danérie" selected="">Danérie</option>
+                            <option value="3" title="Keledor" selected="">Keledor</option>
+                        </select>
+                        <img src="/img/eternity.png" alt="Vyberte ze zobrazených">
+                        <button id="del_confirm">Vymazat</button>
+                    </div>
+                    <div id="modal_add">
+                        <p>Dostupné kategorie: </p>
+                        <select class="form_select">
+                            <option value="0" title="Všechny kategorie" selected="">Vše</option>
+                        </select>
+                        <p>Přesné vyhledávání: </p>
+                        <div class="dropdown">
+                            <input class="form_control" type="text" value="">
+                        </div>
+                        <button id="add_confirm">Potvrdit</button>
+                    </div>
+                    <div id="modal_edit">
+                        <p>Vyberte barvu:</p>
+                        <input id="edit_color" type="color">
+                        <button id="edit_confirm">Změň</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">2021-2022 &copy; <a href="">O nás</a> </div>
+    </div>
+</body>
+</html>

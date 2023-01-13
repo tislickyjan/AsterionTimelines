@@ -1,0 +1,443 @@
+html, body {
+    min-height: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    font-family: "Arial Black", serif;
+}
+
+body {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color:beige;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+#viz {
+    height: 100%;
+}
+
+/*header styles*/
+
+#header {
+    display: flex;
+    background-color: beige;
+    height: 3.5rem;
+    min-height: 3.25rem;
+    justify-content: space-between;
+}
+
+.title {
+    display: inline-flex;
+}
+
+.title h1 {
+    margin: 0 0 0 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.links {
+    display: flex;
+    padding-right: 1rem;
+    justify-content: end;
+    align-items: center;
+}
+
+.links a {
+    margin-left: 2rem;
+    padding: .5rem 1rem .5rem 1rem;
+    max-height: 3rem;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    background-color: forestgreen;
+}
+
+.links a:hover {
+    background-color: greenyellow;
+}
+
+/*-------------minimap styles--------------*/
+.minimap {
+    height: 2.2rem;
+    min-height: 2.2rem;
+    background-color: lightgray;
+}
+
+.minimapDraw {
+    height: 100%;
+    width: 100%;
+    touch-action: none;
+    cursor: inherit;
+}
+
+.minimapDraw .selection{
+    fill: blue;
+    stroke: none;
+    fill-opacity: 0.2;
+    rx: 5px;
+}
+
+.minimapDraw .handle {
+    fill: dimgray;
+    rx: 5px;
+    height: 25px;
+    y: 5px;
+}
+
+.minimapDraw text {
+    cursor: pointer;
+    fill: black;
+}
+
+#minimap_Bound {
+    rx: 5px;
+    stroke: black;
+    fill: white;
+}
+
+#minimap_focus {
+    rx: 5px;
+    stroke: black;
+    fill: blue;
+    opacity: 0.3;
+}
+
+/*---------------------canvas styles----------------------------*/
+.canvas {
+    width: 100%;
+    height: 86%;
+    background-color: lightsteelblue;
+    overflow: hidden;
+    /*overflow: hidden scroll;*/
+}
+
+.canvasDraw {
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+    cursor: inherit;
+}
+
+#zoom {
+    cursor: move;
+    opacity: 0;
+    fill: none;
+    pointer-events: all;
+}
+
+/*#timelines image {*/
+/*    cursor: pointer;*/
+/*}*/
+
+#emblems image {
+    cursor: pointer;
+}
+
+#emblems text {
+    pointer-events: none;
+}
+
+#emblems .hideable {
+    visibility: hidden;
+}
+
+#emblems g:hover .hideable {
+    visibility: visible;
+}
+
+.background {
+    opacity: 0;
+}
+
+#selected {
+    /*none skryje inherit ukaze*/
+    display: none;
+}
+
+/*----------------footer styles--------------------------------*/
+
+#footer {
+    display: flex;
+    justify-content: center;
+    background-color: beige;
+    min-height: 3%;
+    padding-top: 1%;
+    width: 100%;
+    height: 65px; /*TODO: mozna bude treba fixnout*/
+    bottom: 0;
+}
+
+#footer a {
+    margin-left: 0.4rem;
+}
+
+/*-----------------modal menu----------------------------*/
+
+#modal_menu {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
+
+#modal_menu .content {
+    display: inherit;
+    position: fixed;
+    background-color: lightgray;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 70rem;
+    left: 10%;
+    top: 20rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: slideIn;
+    animation-duration: 0.4s
+}
+
+#modal_menu #buttons {
+    display: flex;
+    justify-content: center;
+}
+
+#modal_menu #buttons .mod_item:hover {
+    background-color: greenyellow;
+}
+
+#modal_menu #buttons .mod_item {
+    margin-left: 1rem;
+    font-size: 15px;
+    font-family: "Arial Black";
+    padding: 8px 10px;
+    background-color: inherit;
+    border: none;
+}
+
+#modal_menu .content .tabs {
+    height: 30rem;
+}
+
+#modal_menu .close {
+    position: relative;
+    width: 3rem;
+    font-size: 1.5rem;
+    font-family: Verdana;
+    border:none
+
+}
+
+@-webkit-keyframes slideIn {
+    from {bottom: 0rem; opacity: 0}
+    to {bottom: 28.5rem; opacity: 1}
+}
+
+@keyframes slideIn {
+    from {bottom: 0rem; opacity: 0}
+    to {bottom: 28.5rem; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+#modal_menu .tabs {
+    display: flex;
+}
+
+#modal_add {
+    width: 34%;
+}
+
+#modal_select {
+    width: 33%;
+}
+
+#modal_edit {
+    width: 33%;
+}
+
+#modal_add > * {
+    position: relative;
+    display: block;
+    left: 15%;
+    margin-top: 1rem;
+    top: 1rem;
+}
+
+.tabs #modal_add p {
+    margin: 0.5rem 0 0 0;
+    left: 0%;
+}
+
+.form_select {
+    padding: .375rem .325rem .375rem .75rem;
+    width: 15rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    border: none;
+}
+
+#modal_add .dropdown {
+    max-width: 15rem;
+}
+
+#modal_add .dropdown .form_control {
+    margin: 0rem 0rem 0rem 0rem;
+    padding: 0.15rem 0.1rem 0.15rem 0.1rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid #ffffff;
+    width: 14.5rem;
+    height: 2rem;
+}
+
+#add_confirm {
+    left: 30%;
+    top: 5rem;
+    width: 7.5rem;
+    height: 3rem;
+    visibility: hidden; /*skryva tlacitko, kdyz neni treba*/
+}
+
+#modal_select > * {
+    position: relative;
+    display: block;
+    left: 15%;
+    margin-top: 1rem;
+    top: 1rem;
+}
+
+#modal_select p {
+    margin: 0.5rem 0 0 0;
+}
+
+#modal_select img {
+    width: 10rem;
+    height: 10rem;
+    margin-top: 2rem;
+    left: 27.5%;
+}
+
+#del_confirm {
+    left: 30%;
+    top: 5rem;
+    width: 7.5rem;
+    height: 3rem;
+    visibility: hidden; /*skryva tlacitko, kdyz neni treba*/
+}
+
+#modal_edit > * {
+    position: relative;
+    display: block;
+    left: 15%;
+    margin-top: 1rem;
+    top: 1rem;
+}
+
+#modal_edit p {
+    margin: 0.5rem 0 0 0;
+}
+
+#edit_confirm {
+    left: 10%;
+    top: 3rem;
+    width: 7.5rem;
+    height: 3rem;
+    visibility: inherit; /*skryva tlacitko, kdyz neni treba*/
+}
+
+/*----------------------HELP---------------------------------*/
+#help {
+    background-color: white;
+}
+
+#help h2 {
+    margin-left: 3rem;
+}
+
+#help p {
+    margin-left: 4rem;
+    font-family: Bahnschrift;
+    max-width: 30rem;
+}
+
+#help_start {
+    display: flex;
+}
+
+#help_start ul{
+    font-family: Bahnschrift;
+}
+
+/*----------------------about--------------------------------*/
+
+#about {
+    background-color: white;
+}
+
+#about p {
+    margin-left: 4rem;
+    font-family: Bahnschrift;
+    max-width: 30rem;
+}
+
+#about ul li {
+    margin-left: 4rem;
+    font-family: Bahnschrift;
+    max-width: 30rem;
+}
+
+/*--------------- misc -------------------------------------*/
+#tag-mask {
+    fill: white;
+}
+
+#selected {
+    opacity: 30%;
+    cursor: revert;
+}
+
+#paths path {
+    stroke-width: 10;
+    fill: none;
+    vector-effect:non-scaling-stroke;
+}
+
+#timestamps {
+    width: 50rem;
+}
+
+#timestamps path {
+    stroke-width: 0;
+}
+
+#timestamps line {
+    stroke-width: 0.1rem;
+}
+
+#timestamps text {
+    font-size: 1.5rem;
+    transform: rotate(-45deg);
+    text-anchor: end;
+}

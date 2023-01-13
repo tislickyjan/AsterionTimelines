@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comunication</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script type="module" src="comunication.js"></script>
+    <script type="module" src="../intersections.js"></script>
+    <style>
+        body {
+            background-color: antiquewhite;
+            height: 100%;
+        }
+        select {
+            width: 10rem;
+        }
+
+        #control, #control2 {
+            width: 10rem;
+        }
+
+        #content {
+            width: 12rem;
+            background-color: white;
+            border: 1px solid black;
+            border-bottom-left-radius: 10px;
+            padding: 0rem 1rem 1rem 1rem;
+            max-height: 15rem;
+            overflow-y: scroll;
+            position: absolute;
+            z-index: 2;
+            margin: 0;
+        }
+        #content li {
+            list-style-type: none;
+            padding: 0.15rem 0rem 0.15rem 0.5rem;
+        }
+
+        #content li:hover, .searchSel{
+            background-color: cornflowerblue;
+            border-radius: 0.5rem;
+        }
+
+        #eventsResult {
+            background-color: #888888;
+            max-width: 100%;
+            height: 80%;
+        }
+        #eventsResult ul {
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        #eventsResult li {
+            list-style-type: none;
+            min-width: 5rem;
+            width: 15rem;
+            border: black solid 2px;
+        }
+        svg {
+            background-color: white;
+        }
+
+        svg path {
+            stroke-width: 10;
+            vector-effect:non-scaling-stroke;
+        }
+
+        .group rect {
+            height: 50px;
+            rx: 5px;
+            stroke: red;
+            fill: antiquewhite;
+        }
+        .group image {
+            width: 50px;
+            height: 50px;
+        }
+
+        image:hover {
+            opacity: 0.65;
+        }
+
+        .tippy-box[data-theme~="tooltip"]{
+            background-color: antiquewhite;
+            color: black;
+            border: 1px solid black;
+            border-radius: 15px;
+            min-width: 32rem;
+            display:flex;
+        }
+
+        .tippy-box[data-theme~="tooltip"] .left {
+            border-right-style: solid;
+            border-right-color: black;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            max-width: 15rem;
+            float: left;
+        }
+        .tippy-box[data-theme~="tooltip"] .left h2 {
+            font-size: 1rem;
+        }
+        .tippy-box[data-theme~="tooltip"] .left p {
+            font-size: 1rem;
+        }
+
+        .tippy-box[data-theme~="tooltip"] .right {
+            max-width: 15rem;
+            font-size: 1rem;
+            float: left;
+        }
+
+        .tippy-box[data-theme~='tooltip'][data-placement^='left'] > .tippy-arrow::before {
+            border-left-color: black;
+            margin-right: -0.1rem;
+        }
+        .tippy-box[data-theme~='tooltip'][data-placement^='right'] > .tippy-arrow::before {
+            border-right-color: black;
+            margin-left: -0.1rem;
+        }
+
+    </style>
+</head>
+<body>
+
+</body>
+</html>
