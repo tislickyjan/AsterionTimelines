@@ -315,7 +315,7 @@ export default class Build {
                 let tmp = d3.select(child);
                 tmp.attr("class", data[i].clsName)
                     .attr("transform", `translate(0,${data[i].start})`);
-                tmp.select(".item").attr("href", this.context.url + data[i].imgPath);
+                tmp.select(".item").attr("href", data[i].imgPath);
                 tmp.select("text").text(data[i].name);
                 tmp.select(".colorPicker").attr("fill", data[i].color);
                 if (i + 1 < data.length)
@@ -394,7 +394,7 @@ export default class Build {
     // spojeni obrazku udalosti s jeho popisem
     appendInfoTo(item, event) {
         event.attr("class", this.getClass(item.cls))
-            .attr("href", this.context.url + item.icon)
+            .attr("href", item.icon)
             .attr("y",item.y)
             .attr("bckp-x", item.bck_x)
             .attr("x", this.context.xt2(item.bck_x))
