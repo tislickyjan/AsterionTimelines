@@ -210,13 +210,21 @@ body {
     fill: limegreen;
 }
 
+#add rect {
+    rx: 20px;
+}
+
 #add text, #remove text{
     font-size: 25px;
     fill: black;
 }
 
 #remove {
-    fill: white;
+    fill: #e7e7e7;
+}
+
+#remove rect {
+    rx: 20px;
 }
 
 #remove image {
@@ -224,7 +232,7 @@ body {
 }
 
 .inputPicker {
- display: none;
+    display: none;
 }
 /*-------------------------------------------FOOTER styles-------------------------------------------*/
 
@@ -262,14 +270,19 @@ body {
     margin: auto;
     padding: 0;
     border: 1px solid #888;
-    width: 19rem;
+    width: 21rem;
     max-width: 40rem;
     top: 20%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 20px;
 }
 
 #modal_menu #buttons {
     display: flex;
+}
+
+#modal_menu #buttons .close {
+    border-radius: 20px;
 }
 
 #modal_menu .content .tabs {
@@ -301,7 +314,6 @@ body {
 }
 
 #modal_add .dropdown {
-    /*max-width: 15rem;*/
     margin-bottom: 0.5rem;
 }
 
@@ -316,6 +328,14 @@ body {
 
 #add_confirm {
     visibility: hidden; /*skryva tlacitko, kdyz neni treba*/
+    background-color: lightgray;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+
+#modal_add #add_confirm:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
 }
 
 #modal_add button {
@@ -323,10 +343,33 @@ body {
     height: 3rem;
     display: inline-block;
     margin-top: 0.5rem;
+    border-radius: 10px;
+    margin-left: 5px;
+    left: 35px;
+    transition-duration: 0.4s;
 }
 
 #add_example {
     visibility: hidden;
+    background-color: lightgray;
+    color: black;
+    border: 2px solid #008CBA;
+}
+
+#modal_add #add_example:hover {
+    background-color: #008CBA; /* Green */
+    color: white;
+}
+
+#frequency, #force, #random_order {
+    background-color: lightgray;
+    color: black;
+    border: 2px solid #e7e7e7;
+}
+
+#frequency:hover, #force:hover, #random_order:hover {
+    background-color: #e7e7e7; /* Green */
+    color: black;
 }
 
 #content {
