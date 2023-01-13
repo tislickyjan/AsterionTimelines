@@ -315,7 +315,7 @@ export default class Build {
                 let tmp = d3.select(child);
                 tmp.attr("class", data[i].clsName)
                     .attr("transform", `translate(0,${data[i].start})`);
-                tmp.select(".item").attr("href", this.context.icoUrl + data[i].imgPath);
+                tmp.select(".item").attr("href", data[i].imgPath);
                 tmp.select("text").text(data[i].name);
                 tmp.select(".colorPicker").attr("fill", data[i].color);
                 if (i + 1 < data.length)
@@ -345,7 +345,7 @@ export default class Build {
             .attr("y", "0")
             .text(name);
         // tlacitka skupiny
-        this.addImg(newGroup, "item", this.context.icoUrl + path, "-35", "10", "100", "100")
+        this.addImg(newGroup, "item", path, "-35", "10", "100", "100")
         this.addImg(newGroup, "up hideable", require("/img/smallArrow.png"), "-75", "5", "30", "30");
         this.addImg(newGroup, "down hideable", require("/img/smallArrow.png"), "45", "-65", "30", "30", "rotate(180)");
         this.addImg(newGroup, "remove", require("/img/remove.png"), "-100", "-5", "20", "20", "rotate(180)");
@@ -394,7 +394,7 @@ export default class Build {
     // spojeni obrazku udalosti s jeho popisem
     appendInfoTo(item, event) {
         event.attr("class", this.getClass(item.cls))
-            .attr("href", this.context.icoUrl + item.icon)
+            .attr("href", item.icon)
             .attr("y",item.y)
             .attr("bckp-x", item.bck_x)
             .attr("x", this.context.xt2(item.bck_x))
