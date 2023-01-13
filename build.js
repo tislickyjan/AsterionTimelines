@@ -70,6 +70,7 @@ export default class Build {
         // postav a pridej konec
         this.buildFooter();
         this.viz.append(this.footer);
+        console.log("finished");
     }
 
     // vytvor zahlavi
