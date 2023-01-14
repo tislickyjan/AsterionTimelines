@@ -5,7 +5,7 @@ export default class Context {
     // FIXME musi byt spravna url
     // url pro dotazovani
     url = "https://asteriontimelinesvisualisation.up.railway.app";
-    icoUrl = "https://asteriontimelines.up.railway.app";
+    // icoUrl = "https://asteriontimelines.up.railway.app";
 
     // pole zatím získaných dat ze serverové části
     data = [];
