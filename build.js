@@ -70,7 +70,7 @@ export default class Build {
         // postav a pridej konec
         this.buildFooter();
         this.viz.append(this.footer);
-        console.log("finished");
+        // console.log("finished");
     }
 
     // vytvor zahlavi
@@ -323,6 +323,14 @@ export default class Build {
                     child = child.nextElementSibling;
             } else
                 this.addEmblem(data[i].name, data[i].clsName, data[i].start, data[i].imgPath, data[i].color);
+
+            if (!d3.select(`.inputPicker.${data[i].clsName}`).node()){
+                // element pro vlastni vyber a zmenu barev
+                d3.select(this.canvas)
+                    .append("input")
+                    .attr("type", "color")
+                    .attr("class", `inputPicker ${data[i].clsName}`);
+            }
         }
         if (i === data.length && child)
             while (list.node().lastElementChild !== child)
@@ -359,12 +367,6 @@ export default class Build {
             .attr("r", "20")
             .attr("stroke", "black")
             .attr("stroke-width", "1px");
-
-        // element pro vlastni vyber a zmenu barev
-        d3.select(this.canvas)
-            .append("input")
-            .attr("type", "color")
-            .attr("class", `inputPicker ${clsName}`);
     }
     //------------------------
     // okenko pro napovedu u jednotlivych udalosti
