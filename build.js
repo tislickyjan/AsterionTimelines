@@ -181,7 +181,7 @@ export default class Build {
             .attr("x", xCoord)
             .attr("y", "0");
         button.append("image")
-            .attr("href", "./app" + img)
+            .attr("href", img)
             .attr("width", imgWidth)
             .attr("y", "5")
             .attr("x", imgX);
